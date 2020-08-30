@@ -8,8 +8,7 @@ RUN rm -rf /var/www/html
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY . /var/www
-RUN php artisan config:cache && \
-            chmod -r 777 storage
+RUN php artisan config:cache
 
 RUN ln -s public html
 
